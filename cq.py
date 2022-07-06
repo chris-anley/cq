@@ -56,7 +56,7 @@ CS_FILES = ['.cs']
 C_FILES = ['.c', '.h', '.cpp', '.cxx', '.cc', '.hpp']
 DOTNET_FILES = ['.config', '.cs', '.vb', '.vbs', '.xml']
 GO_FILES = ['.go']
-JAVA_FILES = ['.java']
+JAVA_FILES = ['.java', '.jsp']
 JS_FILES = ['.js']
 PHP_FILES = ['.php', '.php3', '.php4', '.php5', '.phtml', '.inc', '.phpt']
 PL_FILES = ['.pl', '.pm']
@@ -457,6 +457,7 @@ LINE_REGEX_CHECKS = [
     ('insecure_url2', regex.compile(r'''^.{0,200}http://.{0,200}$'''), None, [regex.compile(r'''^\s*(\*+|//|/*|#|;)\s+'''), regex.compile(r'''(readme|\.md|\|xlmns|doctype)''')]),  # noqa
     ('intercept_url', regex.compile(r'''intercept-url{0,200}$''')),
     ('java_deserialisation', regex.compile(r'''\.readObject\(.{0,99}$'''), JAVA_FILES),
+    ('java_spring_expression_lang_injection', regex.compile(r'''(<spring:message|<spring:eval).{0,99}\$\{.{0,99}$'''), JAVA_FILES),
     ('java_sqli', regex.compile(r'''\.(executeQuery|executequery|executeUpdate).{0,99}$'''), JAVA_FILES),
     ('js_var_include', regex.compile(r'''^\s*require\([^'"\n]{0,99}$'''), JS_FILES),
     ('memoryMappedFile', regex.compile(r'''MemoryMappedFile.{0,99}$''')),
