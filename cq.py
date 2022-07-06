@@ -560,6 +560,7 @@ LINE_REGEX_CHECKS = [
     ('ruby_cmdi_system', regex.compile(r'''\Wsystem\W.*#\{'''), RUBY_FILES),
     ('ruby_custom_header', regex.compile(r'''request\.headers\['''), RUBY_FILES),
     ('ruby_env', regex.compile(r'''\WENV\[".*"\]'''), RUBY_FILES),
+    ('ruby_json_load', regex.compile(r'''JSON\.load'''), RUBY_FILES),
     ('ruby_rails_version', regex.compile(r'''^\s*rails\s*\([0-9\.]+\)'''), 'Gemfile.lock'),
     ('ruby_req_header', regex.compile(r'''\.headers\["[a-zA-Z0-9-]"\]'''), RUBY_FILES),
     ('ruby_route_delete', regex.compile(r'''\Wdelete\s'''), RUBY_FILES),
