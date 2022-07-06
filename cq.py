@@ -378,7 +378,7 @@ LINE_REGEX_CHECKS = [
     ('df_py_sinks_crit', regex.compile(r'''^.{0,99}\W(system|check_output|execute|subprocess.call|Popen|popen)\s*\(.{0,199}$'''), PY_FILES),
     ('df_py_sources', regex.compile(r'''^.{0,99}\W(loads|load|open|route|request.args|get_json|get|read)\s*\(.{0,199}$'''), PY_FILES),
     ('df_py_sources', regex.compile(r'''^.{0,99}\W(request.form|session|args|environ|\+\W*\w+\W*\+).{0,199}$'''), PY_FILES),
-    ('df_ruby_sinks', regex.compile(r'''^.{0,99}\W(IO.binread|IO.binwrite|IO.foreach|JSON.parse|popen|read|write|eval|exec|spawn|syscall|system|eval|constantize|render).{0,199}$'''), RUBY_FILES),
+    ('df_ruby_sinks', regex.compile(r'''^.{0,99}\W(IO.binread|IO.binwrite|IO.foreach|JSON.load|JSON.parse|popen|read|write|eval|exec|spawn|syscall|system|eval|constantize|render).{0,199}$'''), RUBY_FILES),
     ('df_ruby_sources', regex.compile(r'''^.{0,99}\W(params|query_parameters|path_parameters|get|post|query_string)\W.{0,199}$'''), RUBY_FILES),
     ('dllimport', regex.compile(r'''dllimport.{0,99}$''')),
     ('dotnet_Rfc2898DeriveBytes', regex.compile(r'''\WRfc2898DeriveBytes.{0,200}$'''), DOTNET_FILES, CS_EXCLUSIONS),
