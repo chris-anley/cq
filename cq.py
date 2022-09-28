@@ -618,6 +618,7 @@ LINE_REGEX_CHECKS = [
     ('ssh_disable_hostkey_check', regex.compile(r'''StrictHostKeyChecking=no.{0,99}$''')),
     ('ssl_disable_curl', regex.compile(r'''curl.{0,99}\s-k\W.{0,99}$''')),
     ('ssl_disable_java', regex.compile(r'''InsecureRequestWarning.{0,99}$''')),
+    ('ssl_disable_mysql', regex.compile(r'''--skip-ssl.{0,99}$''')),
     ('ssl_disable_python', regex.compile(r'''checkServerTrusted.{0,99}$''')),
     ('ssl_disable_python2', regex.compile(r'''no-check-cert.{0,99}$''')),
     ('ssl_disable_python3', regex.compile(r'''verify\s*=\s*False.{0,99}$''')),
