@@ -94,7 +94,7 @@ def get_line_regex_checks(fname, re_checks_todo):
             for fn in cq.BannedFunctions:
                 re = regex.compile(re_checks_todo)
                 if re.search('banned_' + fn):
-                    line_checks += [('banned_' + fn, regex.compile(fn + r'\s*\(.{0,99}$'), None, None)]
+                    line_checks += [('banned_' + fn, regex.compile(r'\W' + fn + r'\s*\(.{0,99}$'), None, None)]
 
     return line_checks
 
