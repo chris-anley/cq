@@ -142,6 +142,7 @@ LINE_REGEX_CHECKS = [
     ('c_cpy_sizeof_src2', regex.compile(r'''(strlcpy|strlcat|strncpy|strncat|strcpy_s|strcat_s)\s*\(\s*\s*[^,]+\s*,\s*([^,]+)\s*,\s*(strlen|sizeof)\s*\2\W'''), C_FILES),
     ('c_cpy_sizeof_src3', regex.compile(r'''(strlcpy|strlcat|strncpy|strncat|strcpy_s|strcat_s)\s*\(\s*(\([^\)]*\))\s*[^,]+\s*,\s*([^,]+)\s*,\s*(strlen|sizeof)\s*(\()?\s*\3\s*(\))?'''), C_FILES),
     ('c_cpy_sizeof_src4', regex.compile(r'''\W(strlcpy|strlcat|strncpy|strncat|strcpy_s|strcat_s)\s*\([^,]+,\s*([^,]+)\s*,[^,;}]+\W\2\W'''), C_FILES),
+    ('c_cpy_sizeof_src5', regex.compile(r'''\W(strlcpy|strlcat|strncpy|strncat|strcpy_s|strcat_s)\s*\([^,]+,\s*([^,]+)\s*,[^,;}]+\2'''), C_FILES),
     ('c_fmt_off_by_one', regex.compile(r'''sprintf.*\%\.\*s.{0,99}sizeof.{0,99}$'''), C_FILES),
     ('c_fscanf', regex.compile(r'''fscanf\s*\(.*\"[^\"]*%s.{0,99}$'''), C_FILES),
     ('c_gets', regex.compile(r'''\Wgets\s*\(.{0,99}$'''), C_FILES),
