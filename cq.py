@@ -56,6 +56,7 @@ CS_FILES = ['.cs']
 C_FILES = ['.c', '.h', '.cpp', '.cxx', '.cc', '.hpp']
 DOTNET_FILES = ['.config', '.cs', '.vb', '.vbs', '.xml']
 GO_FILES = ['.go']
+HTM_FILES = ['.htm', '.html']
 JAVA_FILES = ['.java', '.jsp']
 JS_FILES = ['.js']
 PHP_FILES = ['.php', '.php3', '.php4', '.php5', '.phtml', '.inc', '.phpt']
@@ -516,6 +517,9 @@ LINE_REGEX_CHECKS = [
     ('py_deserialisation2', regex.compile(r'''pickle\.load\(.{0,99}$'''), PY_FILES),
     ('py_filesystem', regex.compile(r'''require\(\'fs\'\).{0,99}$'''), PY_FILES),
     ('py_flask_debug_mode', regex.compile(r'''^.{0,200}app\.run.{0,100}debug\s*=\s*True.{0,200}$'''), PY_FILES),
+    ('py_flask_autoescape', regex.compile(r'''^.{0,200}autoescape\s+false.{0,200}$'''), PY_FILES + HTM_FILES),
+    ('py_flask_pipe_safe', regex.compile(r'''^.{0,200}\|\s*safe.{0,200}$'''), PY_FILES + HTM_FILES),
+    ('py_flask_markup', regex.compile(r'''^.{0,200}\WMarkup\(.{0,200}$'''), PY_FILES),
     ('py_mktemp_banned', regex.compile(r'''^.{0,200}\Wmktemp\s*\(.{0,200}$'''), PY_FILES),
     ('py_shell_is_true', regex.compile(r'''shell\s*=\s*True.{0,99}$'''), PY_FILES),
     ('py_subprocess_call', regex.compile(r'''subprocess.call\(.{0,99}$'''), PY_FILES),
